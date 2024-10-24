@@ -1,0 +1,36 @@
+
+  <div class="flex flex-col md:flex-row justify-center md:justify-between items-start md:items-center px-1 h-16 sm:h-20 w-full">
+    <div class="hidden sm:block">
+      <h3 class="p-1 text-textColor font-semibold text-2xl">View All Customers</h3>
+    </div>
+    <div>
+      <button class="bg-primaryColor rounded-md py-2 px-3 mx-1 text-white hover:bg-secondaryColor" routerLink="/customers/create-customer">Add New Customer</button>
+    </div>
+  </div>
+  <div class="h-full w-full">
+    <div class="m-1 p-2 rounded-md shadow-lg bg-white">
+        <table class="table table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Customer Id</th>
+              <th scope="col">Customer Name</th>
+              <th scope="col">Address</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr *ngFor="let customer of customers">
+              <td>{{customer.customerId}}</td>
+              <td>{{customer.name}}</td>
+              <td>{{customer.address | address}}</td>
+              <td>
+                <button [routerLink]="['/customers',customer.customerId]" class="bg-primaryColor rounded-md py-2 px-3 mx-1 text-white hover:bg-secondaryColor mb-1">Update</button>
+                <button class="bg-[#ac2327] rounded-md py-2 px-3 mx-1 text-white 
+                hover:bg-red-400 mb-1" (click)="deleteCustomer(customer.customerId)">Delete</button>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+  </div>

@@ -1,0 +1,41 @@
+
+  <div class="flex flex-col md:flex-row justify-center md:justify-between items-start md:items-center px-1 h-16 sm:h-20 w-full">
+    <div class="hidden sm:block">
+      <h3 class="p-1 text-textColor font-semibold text-2xl">View All Accounts</h3>
+    </div>
+    <div>
+      <button class="bg-primaryColor rounded-md py-2 px-3 mx-1 text-white hover:bg-secondaryColor" routerLink="/create-account">
+        Add New Account
+      </button>
+    </div>
+  </div>
+  <div class="h-full w-full">
+    <div class="m-1 p-2 rounded-md shadow-lg bg-white">
+        <table class="table table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">Account Id</th>
+              <th scope="col">Balance</th>
+              <th scope="col">Interest Rate</th>
+              <th scope="col">Account Type</th>
+              <th scope="col">Actions</th>
+              
+            </tr>
+          </thead>
+          <tbody class="table-group-divider">
+            <tr *ngFor="let account of accounts">
+              <td>{{account.accountId}}</td>
+              <td>{{account.balance | currency}}</td>
+              <td>{{account.interestRate}}</td>
+              <td>{{account | accountType}}</td>
+              <td>
+                <button class="bg-primaryColor rounded-md py-2 px-3 mx-1 text-white hover:bg-secondaryColor mb-1">Update</button>
+                <button class="bg-[#ac2327] rounded-md py-2 px-3 mx-1 text-white 
+                hover:bg-red-400 mb-1" (click)="deleteCustomer(account.accountId)">Delete</button>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+  </div>

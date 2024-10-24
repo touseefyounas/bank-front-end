@@ -1,0 +1,39 @@
+<div class="h-screen w-full p-6">
+    <div class="p-4 rounded-md shadow-lg bg-white w-full">
+    <form #form="ngForm">
+        <div class="form-group mt-2">
+            <label class='block' for="customerType">Select Customer Type</label>
+            <select ngModel #customerType="ngModel" id="customerType" name="customerType" class="form-select w-1/4 mt-2" required>
+                <option value=""></option>
+                <option value="person">Personal</option>
+                <option value="company">Business</option>
+            </select>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="name">Customer Name</label>
+            <input type='text' ngModel #customerName="ngModel" class="form-control mt-2 w-1/2" id="name" name="name" required>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="streetNumber">Street Number</label>
+            <input type='text' ngModel #streetNumber="ngModel" class="form-control mt-2 w-1/2" id="streetNumber" name="streetNumber" required>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="postalCode">Postal Code</label>
+            <input type='text' ngModel #postalCode="ngModel" class="form-control mt-2 w-1/4" id="postalCode" name="postalCode" required>
+        </div>
+
+        <div class="mt-4">{{form.value | json }}</div>
+        <div class="mt-4">Valid: {{form.valid}}</div>
+
+        <button type="submit" (click)="createCustomer(form.value)" [disabled]="!form.valid" class="bg-primaryColor disabled:bg-backgroundColor rounded-md py-2 px-3 mx-1 text-white hover:bg-secondaryColor cursor-pointer mt-2">
+            Create Customer
+        </button>
+        <button routerLink="/customers" class="bg-accentColor disabled:bg-backgroundColor rounded-md py-2 px-3 mx-1 text-textColor hover:bg-secondaryColor cursor-pointer mt-2">
+            Cancel
+        </button>
+    </form>
+    </div>
+  </div>

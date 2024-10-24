@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background: rgba(202, 210, 197, 0.6);
+    height: 100vh;
+    margin: 0;
+}
+
+.table thead th {
+    background-color: #354f52;
+    color: white;
+}
