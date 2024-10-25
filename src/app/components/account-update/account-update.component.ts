@@ -19,8 +19,12 @@ export class AccountUpdateComponent {
 
   accountType: string ='';
 
+  successAlert: boolean = false;
+
   accountTypeStatus = false;
+
   customers: Customer[] =[]
+
   account: Account = {
     accountId: 0,
     balance: 0,
@@ -66,8 +70,12 @@ export class AccountUpdateComponent {
     this.account.interestRate = updatedAccount.interestRate
     
     this.accountService.updateAccountById(this.account.accountId, updatedAccount).subscribe(response => {
-      alert('Account updated successfully!')
-      this.router.navigate(['/'])
+      this.successAlert = true
+      
+      setTimeout(() => {
+        this.successAlert = false
+        this.router.navigate(['/'])
+    }, 2000)
     })
   }
   

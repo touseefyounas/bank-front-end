@@ -13,11 +13,17 @@ import { CustomerCreateDTO } from '../../model/customerCreateDTO';
 })
 export class CustomerformComponent {
 
+  successAlert: Boolean = false;
+
   constructor(private customerService:CustomerService, private router:Router){}
 
   createCustomer(newCustomer: CustomerCreateDTO){
     this.customerService.createCustomer(newCustomer).subscribe(response=> console.log(response))
-    alert('Customer Created Successfully!')
-    this.router.navigate(['/customers'])
+    this.successAlert = true
+      
+      setTimeout(() => {
+        this.successAlert = false
+        this.router.navigate(['/customers'])
+    }, 2000)
   }
 }

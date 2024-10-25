@@ -25,6 +25,9 @@
               <td>{{customer.address | address}}</td>
               <td>
                 <button [routerLink]="['/customers',customer.customerId]" class="bg-primaryColor rounded-md py-2 px-3 mx-1 text-white hover:bg-secondaryColor mb-1">Update</button>
+
+                <button [routerLink]="['/customers',customer.customerId,'accounts']" class="bg-secondaryColor rounded-md py-2 px-3 mx-1 text-white hover:bg-primaryColor mb-1">View Accounts</button>
+
                 <button class="bg-[#ac2327] rounded-md py-2 px-3 mx-1 text-white 
                 hover:bg-red-400 mb-1" (click)="deleteCustomer(customer.customerId)">Delete</button>
               </td>

@@ -17,7 +17,10 @@ import { AccountService } from '../../service/account.service';
 export class AccountformComponent {
   
   accountTypeStatus = false;
+
   customers: Customer[] =[]
+
+  successAlert: boolean = false;
 
   constructor(private accountService: AccountService, private customerService: CustomerService, private router: Router){
     this.customerService.getAllCustomers().subscribe((response)=> this.customers = response)
@@ -34,8 +37,12 @@ export class AccountformComponent {
 
   createAccount(newAccount: Account){
     this.accountService.createAccount(newAccount).subscribe(response=> console.log(response))
-    alert('Account Crated Successfully!')
-    this.router.navigate(['/'])
+    this.successAlert = true
+      
+    setTimeout(() => {
+      this.successAlert = false
+      this.router.navigate(['/'])
+    }, 2000)
   }
 
 }

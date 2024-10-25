@@ -16,9 +16,9 @@
             <label for="interestRate">Interest Rate</label>
             <input type="number" ngModel #interestRate="ngModel" [(ngModel)]="account.interestRate" class="form-control mt-2 w-1/2" id="interestRate" name="interestRate" min="0" step="0.1">
         </div>
-
-        <div class="mt-4">{{form.value | json }}</div>
-        <div class="mt-4">Valid: {{form.valid}}</div>
+        <div *ngIf="successAlert" class="alert alert-success alert-dismissible fade show mt-2 w-1/2">
+            Account updated successfully!
+        </div>
 
         <button type="submit" (click)="updateAccountById(form.value)" [disabled]="!form.valid" class="bg-primaryColor disabled:bg-backgroundColor rounded-md py-2 px-3 mx-1 text-white hover:bg-secondaryColor cursor-pointer mt-2">
             Update Account

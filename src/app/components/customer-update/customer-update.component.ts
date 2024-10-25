@@ -16,6 +16,8 @@ import { Account } from '../../model/account';
 })
 export class CustomerUpdateComponent {
 
+  successAlert: boolean = false;
+
   address: Address = {
     addressId: 0,
     streetNumber: '',
@@ -45,8 +47,12 @@ export class CustomerUpdateComponent {
   updateCustomer(updatedCustomer: CustomerUpdateDTO){
     
      this.customerService.updateCustomerById(updatedCustomer, this.customer.customerId).subscribe(response=> {
-      alert('Customer updated successfully!')
-      this.router.navigate(['/customers'])
+      this.successAlert = true
+      
+      setTimeout(() => {
+        this.successAlert = false
+        this.router.navigate(['/customers'])
+    }, 2000)
 
      })
   }

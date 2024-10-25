@@ -4,15 +4,20 @@
         <div class="form-group mt-2">
             <label class='block' for="customerType">Select Customer Type</label>
             <select ngModel #customerType="ngModel" id="customerType" name="customerType" class="form-select w-1/4 mt-2" required>
-                <option value=""></option>
                 <option value="person">Personal</option>
                 <option value="company">Business</option>
             </select>
+            <div class="alert alert-danger w-1/4 mt-2" *ngIf="customerType.touched && !customerType.valid">
+                <div *ngIf="customerType.errors?.['required']">Select a Customer Type</div>
+            </div>
         </div>
 
         <div class="form-group mt-2">
             <label for="name">Customer Name</label>
             <input type='text' ngModel #customerName="ngModel" class="form-control mt-2 w-1/2" id="name" name="name" required>
+            <div class="alert alert-danger w-1/2 mt-2" *ngIf="customerName.touched && !customerName.valid">
+                <div *ngIf="customerName.errors?.['required']">Enter Customer Name</div>
+            </div>
         </div>
 
         <div class="form-group mt-2">
@@ -23,10 +28,14 @@
         <div class="form-group mt-2">
             <label for="postalCode">Postal Code</label>
             <input type='text' ngModel #postalCode="ngModel" class="form-control mt-2 w-1/4" id="postalCode" name="postalCode" required>
+            <div class="alert alert-danger w-1/4 mt-2" *ngIf="postalCode.touched && !postalCode.valid">
+                <div *ngIf="postalCode.errors?.['required']">Enter Postal Code</div>
+            </div>
         </div>
 
-        <div class="mt-4">{{form.value | json }}</div>
-        <div class="mt-4">Valid: {{form.valid}}</div>
+        <div *ngIf="successAlert" class="alert alert-success alert-dismissible fade show mt-2 w-1/2">
+            Customer created successfully!
+        </div>
 
         <button type="submit" (click)="createCustomer(form.value)" [disabled]="!form.valid" class="bg-primaryColor disabled:bg-backgroundColor rounded-md py-2 px-3 mx-1 text-white hover:bg-secondaryColor cursor-pointer mt-2">
             Create Customer

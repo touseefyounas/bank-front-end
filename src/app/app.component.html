@@ -14,25 +14,16 @@
         [ngClass]="{'hidden': !sideBarOpen, 'block col-12': sideBarOpen}"> 
       <ul class=" space-y-2 font-medium text-center text-white">
         <li>
-          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="block nav-link p-3 hover:bg-secondaryColor rounded-md">Home</a>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" class="block nav-link p-3 hover:bg-secondaryColor rounded-md">Accounts</a>
         </li>
         <li>
-          <a href="#" routerLinkActive="active" class="block nav-link p-3 hover:bg-secondaryColor rounded-md">Add</a>
+          <a routerLink="/customers" routerLinkActive="active" class="block nav-link p-3 hover:bg-secondaryColor rounded-md">Customers</a>
         </li>
         <li>
-          <a href="#" routerLinkActive="active" class="block nav-link p-3 hover:bg-secondaryColor rounded-md ">Update</a>
+          <a href="#" routerLinkActive="active" class="block nav-link p-3 hover:bg-backgroundColor rounded-md">Login</a>
         </li>
         <li>
-          <a routerLink="/customers" routerLinkActive="active" class="block nav-link p-3 hover:bg-secondaryColor rounded-md">Users</a>
-        </li>
-        <li>
-          <a href="#" routerLinkActive="active" class="block nav-link p-3 hover:bg-secondaryColor rounded-md">Find By Id</a>
-        </li>
-        <li>
-          <a href="#" routerLinkActive="active" class="block nav-link p-3 hover:bg-secondaryColor rounded-md">Login</a>
-        </li>
-        <li>
-          <a href="#" routerLinkActive="active" class="block nav-link p-3 hover:bg-secondaryColor rounded-md">Register</a>
+          <a href="#" routerLinkActive="active" class="block nav-link p-3 hover:bg-backgroundColor rounded-md">Register</a>
         </li>
       </ul>
     </div>

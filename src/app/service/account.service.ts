@@ -30,4 +30,8 @@ export class AccountService {
   updateAccountById(id: number, updatedAccount: Account): Observable<Account> {
     return this.http.put<Account>(this.baseURL + '/' + id, updatedAccount)
   }
+
+  findAccountsByCity(city:string): Observable<Account[]>{
+    return this.http.get<Account[]>(`${this.baseURL}/find-accounts?city=${city}`)
+  }
 }

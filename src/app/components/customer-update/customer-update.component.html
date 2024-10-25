@@ -22,8 +22,9 @@
             <input type='text' [(ngModel)]="customer.address.postalCode" ngModel #postalCode="ngModel" class="form-control mt-2 w-1/2" id="postalCode" name="postalCode" required>
         </div>
 
-        <div class="mt-4">{{form.value | json }}</div>
-        <div class="mt-4">Valid: {{form.valid}}</div>
+        <div *ngIf="successAlert" class="alert alert-success alert-dismissible fade show mt-2 w-1/2">
+            Account updated successfully!
+        </div>
 
         <button type="submit" (click)="updateCustomer(form.value)" class="bg-primaryColor disabled:bg-backgroundColor rounded-md py-2 px-3 mx-1 text-white hover:bg-secondaryColor cursor-pointer mt-2">
             Update Customer

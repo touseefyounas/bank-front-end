@@ -5,6 +5,7 @@ import { CustomertableComponent } from './components/customertable/customertable
 import { CustomerformComponent } from './components/customerform/customerform.component';
 import { CustomerUpdateComponent } from './components/customer-update/customer-update.component';
 import { AccountUpdateComponent } from './components/account-update/account-update.component';
+import { CustomerAccountsComponent } from './components/customer-accounts/customer-accounts.component';
 
 export const routes: Routes = [
     {path: '', component: AccounttableComponent},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     {path:'customers', component: CustomertableComponent},
     {path:'customers/create-customer', component: CustomerformComponent},
     {path:'customers/:id', component:CustomerUpdateComponent},
-    {path: ':id', component: AccountUpdateComponent}
+    {path: ':id', component: AccountUpdateComponent},
+    {path:'customers/:id/accounts', component: CustomerAccountsComponent}
     ];

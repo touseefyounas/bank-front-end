@@ -11,7 +11,10 @@ module.exports = {
         secondaryColor: '#52796f',
         primaryColor: '#354f52',
         backgroundColor: '#cad2c5',
-      }
+      },
+      screens: {
+        'xs': '420px',
+      },
     },
   },
   plugins: [],
